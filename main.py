@@ -9,7 +9,7 @@ from flask import Response,Flask
 
 
 app = Flask(__name__)
-web_code = Gauge("web_code", "Web code of value",["project","env","service_name"])  # 数值可大可小
+web_code = Gauge("web_code", "Web code of value",["project","env","service_name","host"])  # 数值可大可小
 
 #eurake监控
 @app.route("/metrics")
@@ -17,7 +17,7 @@ def eurake():
   urls=["http://tezign:tezign@172.17.217.146:10353/","http://tezign:tezign@172.17.217.146:10354/","http://tezign:tezign@172.17.217.146:10355/"]
   for index,url in enumerate(urls):
     code=tools.get_content(url)
-    web_code.labels("sop","prod","eurake"+str(index)).set(code)
+    web_code.labels("sop","prod","eurake"+str(index),url).set(code)
   return Response(prometheus_client.generate_latest(web_code),mimetype="text/plain")
 
 
