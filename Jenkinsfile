@@ -17,7 +17,7 @@ pipeline {
             }
         }
         stage('deploy'){
-            stages {
+            steps {
                 sh "docker rm -vf ${DOCKER_IMAGE}"
                 sh "docker run -d -p 8081:8080 --restart always --name ${DOCKER_IMAGE} ${REGISTRY_HOST}/${DOCKER_IMAGE}:${params.GIT_TAG}_${BUILD_ID}"
             }
