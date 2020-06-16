@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    environment {
+        GIT_TAG = sh(returnStdout: true,script: 'git describe --tags').trim()
+        REGISTRY_HOST = "tezign.com:5000"
+        DOCKER_IMAGE = "prometheus_client_metrics"
+        APP_NAME = "prometheus_client_metrics"
+    }
     parameters {
-        string(name: 'REGISTRY_HOST', defaultValue: 'tezign.com:5000', description: '仓库地址')
-        string(name: 'DOCKER_IMAGE', defaultValue: 'prometheus_client_metrics', description: 'docker镜像名')
-        string(name: 'APP_NAME', defaultValue: 'prometheus_client_metrics', description: 'k8s中标签名')
-        string(name: 'K8S_NAMESPACE', defaultValue: 'env6', description: 'k8s的namespace名称')
+        //string(name: 'K8S_NAMESPACE', defaultValue: 'env6', description: 'k8s的namespace名称')
+        choice(name:'K8S_NAMESPACE',choices:'env5\nenv6',description:'k8s的namespace名称')
     }
     stages {
         stage('image') {
