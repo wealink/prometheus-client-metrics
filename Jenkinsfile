@@ -12,8 +12,8 @@ pipeline {
     stages {
         stage('image') {
             steps {
-                sh "docker build -t ${params.REGISTRY_HOST}/${params.DOCKER_IMAGE}:${params.GIT_TAG} ."
-                sh "docker push ${params.REGISTRY_HOST}/${params.DOCKER_IMAGE}:${params.GIT_TAG} "
+                sh "docker build -t ${REGISTRY_HOST}/${DOCKER_IMAGE}:${params.GIT_TAG} ."
+                sh "docker push ${REGISTRY_HOST}/${DOCKER_IMAGE}:${params.GIT_TAG} "
             }
         }
     }
