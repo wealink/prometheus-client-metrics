@@ -6,7 +6,7 @@ pipeline {
         APP_NAME = "client_metrics"
     }
     parameters {
-        choice(name:'K8S_NAMESPACE',choices:'env5\n env6',description:'k8s的namespace名称')
+        choice(name:'K8S_NAMESPACE',choices:'env5\nenv6',description:'k8s的namespace名称')
         string(name: 'GIT_TAG', defaultValue: 'master', description: 'GIT_TAG名称')
     }
     stages {
