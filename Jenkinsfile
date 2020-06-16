@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'master'
+        }
+    }
     environment {
         REGISTRY_HOST = "tezign.com:5000"
         DOCKER_IMAGE = "client_metrics"
