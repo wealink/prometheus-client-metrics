@@ -1,17 +1,1 @@
 
-2020-06-18 10:43:08,595|INFO|client_metrics|server close：2020-06-18 10:43:08.595072
-2020-06-18 10:45:01,229|INFO|main.py|server start：2020-06-18 10:45:01.229047
-2020-06-18 10:45:06,232|INFO|_internal.py| * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
-2020-06-18 10:46:06,696|INFO|main.py|server close：2020-06-18 10:46:06.696442
-2020-06-18 10:46:07,625 INFO MainThread server start：2020-06-18 10:46:07.625032
-2020-06-18 10:46:12,629 INFO MainThread  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
-2020-06-18 11:01:31,380 INFO MainThread server close：2020-06-18 11:01:31.380378
-2020-06-19 14:35:49,447 INFO server start：2020-06-19 14:35:49.446988
-2020-06-19 14:35:54,455 INFO  * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
-2020-06-19 14:36:00,033 INFO server close：2020-06-19 14:36:00.032989
-2020-06-19 14:50:52,167 INFO client_metrics server start：2020-06-19 14:50:52.167100
-2020-06-19 14:51:24,533 INFO client_metrics server start：2020-06-19 14:51:24.533911
-2020-06-19 14:54:44,218 INFO client_metrics server close：2020-06-19 14:54:44.218702
-2020-06-19 14:54:45,321 INFO client_metrics server start：2020-06-19 14:54:45.321494
-2020-06-19 14:57:56,463 INFO client_metrics server close：2020-06-19 14:57:56.463745
-2020-06-19 15:00:56,375    INFO   client_metrics:  server start：2020-06-19 15:00:56.3749742020-06-19 15:16:30,441    INFO   client_metrics:  server close：2020-06-19 15:16:30.441227
