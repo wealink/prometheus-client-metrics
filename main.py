@@ -22,6 +22,7 @@ def eurake():
   for index,url in enumerate(urls):
     code=tools.get_content(url)
     web_code.labels("sop","prod","eurake"+str(index),url).set(code)
+    logger.info(prometheus_client.generate_latest(web_code))
   return Response(prometheus_client.generate_latest(web_code),mimetype="text/plain")
 
 
