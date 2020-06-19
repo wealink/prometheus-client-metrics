@@ -10,3 +10,4 @@ def get_content(url):
         return 0
     else:
         return response.status_code
+
