@@ -18,7 +18,7 @@ web_code = Gauge("web_code", "Web code of value",["project","env","service_name"
 #eurake监控
 @app.route("/metrics")
 def eurake():
-  urls=["http://tezign:tezign@172.17.217.146:10353/","http://tezign:tezign@172.17.217.146:10354/","http://tezign:tezign@172.17.217.146:10355/"]
+  urls=["http://tezign:tezign@10.80.82.203:30622/"]
   for index,url in enumerate(urls):
     code=tools.get_content(url)
     web_code.labels("sop","prod","eurake"+str(index),url).set(code)
