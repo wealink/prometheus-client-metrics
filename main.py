@@ -15,15 +15,37 @@ from loguru import logger
 app = Flask(__name__)
 web_code = Gauge("web_code", "Web code of value",["project","env","service_name","host"])  # 数值可大可小
 
-#eurake监控
+#metrics监控
 @app.route("/metrics")
-def eurake():
-  urls=["http://tezign:tezign@10.80.82.203:30622/"]
-  for index,url in enumerate(urls):
+def metrics():
+  #sop project
+  sop_urls = ["http://tezign:tezign@10.80.82.203:30622/"]
+  for index,url in enumerate(sop_urls):
     code=tools.get_content(url)
     web_code.labels("sop","prod","eurake"+str(index),url).set(code)
     logger.info(prometheus_client.generate_latest(web_code))
+
+  #ai project
+  ai_urls = {
+    "ai-gpu-prod": "http://47.103.96.111:9081/health_check",
+    "ai-video-prod": "http://47.103.96.111:9083/health_check",
+    "ai-ocr-prod": "http://47.103.96.111:9086/health_check",
+    "ai-cdmp-prod": "http://47.103.96.111:9089/health_check",
+    "ai-forecast-prod": "http://47.103.96.111:9087/health_check",
+    "ai-search-prod": "http://47.103.96.111:9085/health_check",
+    "ai-picture-prod": "http://47.103.96.111:9092/health_check",
+    #"ai-dam-prod": "http://47.103.96.111:9096/health_check",
+    "ai-saas-prod": "http://47.103.96.111:9084/health_check",
+    "test": "http://47.103.96.111:9090/health_check"
+             }
+  for project, url in ai_urls.items():
+    code = tools.get_content(url)
+    web_code.labels("ai", "prod", project, url).set(code)
+
+  #vms project
+
   return Response(prometheus_client.generate_latest(web_code),mimetype="text/plain")
+
 
 
 
