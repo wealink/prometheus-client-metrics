@@ -34,7 +34,7 @@ def metrics():
     "ai-forecast-prod": "http://47.103.96.111:9087/health_check",
     "ai-search-prod": "http://47.103.96.111:9085/health_check",
     "ai-picture-prod": "http://47.103.96.111:9092/health_check",
-    #"ai-dam-prod": "http://47.103.96.111:9096/health_check",
+    "ai-dam-prod": "http://47.103.96.111:9096/health_check",
     "ai-saas-prod": "http://47.103.96.111:9084/health_check"
              }
   for project, url in ai_urls.items():
